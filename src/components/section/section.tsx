@@ -1,4 +1,3 @@
-
 const Section = ({ children, style, id }) => (
   <section
     id={id}

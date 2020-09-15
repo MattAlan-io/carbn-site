@@ -1,11 +1,13 @@
-import React from "react"
+import React from 'react';
+import IntroSection from './sections/intro-section';
+import LogoSection from './sections/logo-section';
 import EmailSection from "./sections/email-section"
-import IntroSection from "./sections/intro-section"
 
 const LandingPage = () => {
   return (
     <>
       <IntroSection />
+      <LogoSection />
       <EmailSection />
     </>
   )

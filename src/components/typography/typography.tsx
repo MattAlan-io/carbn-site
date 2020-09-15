@@ -34,6 +34,7 @@ const Typography = ({ children, inline, alignRight, ...variants }: Props) => {
     <Element
       style={{
         ...styles,
+        fontFamily: 'SF Pro Display',
         ...(inline && { display: 'inline-block' }),
         ...(alignRight && { textAlign: 'right' }),
       }}

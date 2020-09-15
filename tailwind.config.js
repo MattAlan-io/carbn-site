@@ -5,7 +5,12 @@ module.exports = {
   },
   purge: [],
   theme: {
-    extend: {},
+    colors: {
+      'carbn-blue': '#2F3D4C',
+      'carbn-light-blue': '#55697E',
+      'carbn-luna-green': '#31BEA9',
+      'carbn-white': '#FFFFFF',
+    },
   },
   variants: {},
   plugins: [],

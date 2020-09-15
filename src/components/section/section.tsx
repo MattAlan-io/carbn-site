@@ -1,12 +1,17 @@
-const Section = ({ children, style, id }) => (
+import React from 'react';
+import tw from 'tailwind.macro';
+
+import Layout from '../layout';
+
+
+
+ 
+const Section = ({ children, className = '', id }) => (
   <section
     id={id}
-    style={{
-      width: '100%',
-      ...style,
-    }}
+    className={`${className} p-10`}
   >
-    {children}
+    <Layout>{children}</Layout>
   </section>
 );
 

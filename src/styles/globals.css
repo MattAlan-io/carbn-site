@@ -1,2 +1,8 @@
 @tailwind base;
 @tailwind utilities;
+
+@import '../static/fonts/fonts.css';
+
+* {
+  font-family: -apple-system, 'Helvetica Neue', 'Lucida Grande';
+}

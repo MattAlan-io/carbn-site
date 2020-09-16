@@ -11,6 +11,8 @@ type VariantMap = { [key in Variants]?: boolean };
 type ExtraProps = {
   inline?: boolean;
   alignRight?: boolean;
+  className?: string;
+  uppercase?: boolean;
 };
 
 type Props = PropsWithChildren<ExtraProps & VariantMap>;
@@ -27,16 +29,17 @@ const getElement = (variantMap: VariantMap) => {
   } else return candidates[0];
 };
 
-const Typography = ({ children, inline, alignRight, ...variants }: Props) => {
+const Typography = ({ children, inline, alignRight, uppercase, className, ...variants }: Props) => {
   const Element = getElement(variants);
 
   return (
     <Element
+      className={className}
       style={{
         ...styles,
-        fontFamily: 'SF Pro Display',
         ...(inline && { display: 'inline-block' }),
         ...(alignRight && { textAlign: 'right' }),
+        ...(uppercase && { textTransform: 'uppercase' }),
       }}
     >
       {children}

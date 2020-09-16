@@ -4,5 +4,5 @@
 @import '../static/fonts/fonts.css';
 
 * {
-  font-family: -apple-system, 'Helvetica Neue', 'Lucida Grande';
+  font-family: -apple-system, Roboto, "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif
 }

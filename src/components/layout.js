@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 
 import './layout.css';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, className=''}) => {
   // const data = useStaticQuery(graphql`
   //   query SiteTitleQuery {
   //     site {
@@ -25,10 +25,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <div
+      className={`p-10 h-full ${className}`}
         style={{
           margin: `0 auto`,
           maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
         }}
       >
         {children}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
+import Layout from '../../../components/layout';
 // import tw from 'tailwind.macro';
 import Section from '../../../components/section/section';
 import Typography from '../../../components/typography/typography';
@@ -7,7 +8,8 @@ import preview from '../../../images/wireframe.png';
 
 const AppPreviewsSection = () => {
   return (
-    <Section id="app-previews">
+    <Section id="app">
+      <Layout>
       <div className="grid grid-rows-4 row-gap-24">
         <AppPreview title="LEARN" description="Calculate your carbon footprint to understand how your activities impact the planet." />
         <AppPreview
@@ -25,6 +27,7 @@ const AppPreviewsSection = () => {
           imageSide="right"
         />
       </div>
+      </Layout>
     </Section>
   );
 };

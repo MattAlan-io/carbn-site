@@ -1,12 +1,17 @@
+@import '../static/devices.css';
+
 @tailwind base;
 @tailwind utilities;
 
-@import '../static/fonts/fonts.css';
-
 * {
-  font-family: -apple-system, Roboto, "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif
+  font-family: -apple-system, Roboto, "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 img {
   max-width: initial !important;
+}
+
+.max-w-screen {
+  max-width: 100vw;
 }

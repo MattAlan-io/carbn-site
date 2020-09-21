@@ -1,5 +1,4 @@
 import { InterpolationWithTheme } from "@emotion/core";
-import { string } from "prop-types";
 
 declare module 'react' {
   interface Attributes {

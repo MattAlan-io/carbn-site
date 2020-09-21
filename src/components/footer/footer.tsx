@@ -1,6 +1,9 @@
-import React from "react"
-import tw from "tailwind.macro"
-import { InstagramIcon, LinkedInIcon, TwitterIcon } from "./icons"
+import React from 'react';
+import tw from 'tailwind.macro';
+import Content from '../../content/landing-page.content';
+import { InstagramIcon, LinkedInIcon, TwitterIcon } from '../icons';
+
+const content = Content.footer;
 
 const Footer = tw.footer`
   bg-white
@@ -9,17 +12,17 @@ const Footer = tw.footer`
   text-center
   pt-12
   pb-8
-`
+`;
 
 const IconContainer = tw.div`
   flex
   justify-center
   mb-4
-`
+`;
 
 const IconLink = tw.a`
   mx-2
-`
+`;
 
 const FooterSection = () => {
   return (
@@ -35,9 +38,9 @@ const FooterSection = () => {
           <LinkedInIcon />
         </IconLink>
       </IconContainer>
-      <span className="font-bold">info@carbn.com</span>
+      <span className="font-bold">{content.emailAddress}</span>
     </Footer>
-  )
-}
+  );
+};
 
-export default FooterSection
+export default FooterSection;

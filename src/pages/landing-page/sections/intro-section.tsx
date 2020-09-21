@@ -1,31 +1,14 @@
-import React, { Ref, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 
 import { animated } from 'react-spring';
 import { useTrail } from 'react-spring/web';
 import Section from '../../../components/section/section';
-import Typography from '../../../components/typography/typography';
-import Layout from '../../../components/layout';
+import Layout from '../../../components/layout/layout';
 import { scrollToSection } from '../../../util/util';
 import BackgroundLines from '../../../components/background-lines/background-lines';
+import Content from '../../../content/landing-page.content';
 
-
-// const items = [
-//   'Our climate is changing at an alarming rate due to human activity.',
-//   'All of us are responsible for this.',
-//   'All of us will be affected by this.',
-//   'However – it is hard to understand your impact and how to take responsibility.',
-//   'This has led millions of people, who genuinely care about our planet, to do nothing.',
-//   'Until now...'
-// ];
-
-const sentences = [
-  'Our climate is changing at an alarming rate due to human activity.',
-  'All of us are responsible for this.',
-  'All of us will be affected by this.',
-  'However – it is hard to understand your impact and how to take responsibility.',
-  'This has led millions of people, who genuinely care about our planet, to do nothing.',
-  'Until now...',
-];
+const content = Content.intro;
 
 const config = {
   tension: 1000,
@@ -37,7 +20,6 @@ const DISABLE_ANIMATION = false;
 
 function SentenceTrail(props: { sentence: string, delay: number }) {
   const [toggle, set] = useState(DISABLE_ANIMATION);
-  console.log({ DISABLE_ANIMATION, toggle })
   const items = props.sentence.split(' ');
 
   const delayIn = props.delay ;
@@ -54,21 +36,9 @@ function SentenceTrail(props: { sentence: string, delay: number }) {
 
   useLayoutEffect(() => {
     if (DISABLE_ANIMATION) return;
-
-    console.log({ delayIn, delayOut });
-
     const handle = window.setTimeout(() => set(true), delayIn);
     return () => window.clearTimeout(handle);
   }, []);
-
-  // useLayoutEffect(() => {
-  //   if (DISABLE_ANIMATION) return;
-
-  //   console.log({ delayIn, delayOut });
-
-  //   const handle = window.setTimeout(() => set(false), delayOut);
-  //   return () => window.clearTimeout(handle);
-  // }, []);
 
   return (
     <div className="mb-4">
@@ -79,15 +49,14 @@ function SentenceTrail(props: { sentence: string, delay: number }) {
           style={{
             ...rest,
             display: 'inline-block',
-            textTransform: 'uppercase',
             marginRight: '.5rem',
-            transform: x.interpolate(x => `translate3d(0,${x}px,0)`),
+            transform: x.interpolate((x: number) => `translate3d(0,${x}px,0)`),
           }}
         >
           <animated.span style={{ height }}>
-            <Typography h1 inline className="text-lg md:text-2xl">
+            <h1 className="text-lg md:text-2xl font-normal">
               {items[index]}
-            </Typography>
+            </h1>
           </animated.span>
         </animated.span>
       ))}
@@ -95,10 +64,12 @@ function SentenceTrail(props: { sentence: string, delay: number }) {
   );
 }
 
-// const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)   
+type Props = {
+  onAnimationCompleting?: () => void;
+}
 
-function IntroSection() {
-
+function IntroSection({ onAnimationCompleting }: Props) {
+  const { sentences } = content;
   const totalTime = (sentences.length * SENTENCE_DELAY) + 500;
 
   useEffect(() => {

@@ -1,22 +1,19 @@
 import { css } from '@emotion/core';
-import React from 'react';
-import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
-import Layout from '../../../components/layout';
+import React, { PropsWithChildren } from 'react';
+import { Parallax } from 'react-scroll-parallax';
+
 // import tw from 'tailwind.macro';
 import Section from '../../../components/section/section';
 import Typography from '../../../components/typography/typography';
 import { DeviceWidth, useDeviceSize } from '../../../hooks/useDeviceSize';
 
-// Mockups
-import AdaptSetupImage from '../../../assets/img/adapt-setup.png';
-import CarbnIDImage from '../../../assets/img/carbn-id.png';
-import LearnSetupImage from '../../../assets/img/learn-setup.png';
-import OffsetsSetupImage from '../../../assets/img/offsets-setup.png';
-import SetupQuestionsImage from '../../../assets/img/setup-questions.png';
-
 import DarkLines from '../../../assets/svg/Dark.svg';
+import Layout from '../../../components/layout/layout';
+import Content from '../../../content/landing-page.content';
 
-const BackgroundLines = ({ children }) => (
+const content = Content.app;
+
+const BackgroundLines = ({ children }: PropsWithChildren<{}>) => (
   <div
     css={css`
       &:before {
@@ -38,46 +35,13 @@ const BackgroundLines = ({ children }) => (
   </div>
 );
 
-const appPreviews: AppPreviewProps[] = [
-  {
-    title: 'Learn',
-    description: 'Calculate your carbon footprint to understand how your activities impact the planet.',
-    imageSide: 'left',
-    imageSrc: LearnSetupImage,
-    alt: 'Learn setup iOS wireframe',
-  },
-  {
-    title: 'Adapt',
-    description:
-      'Adapt your lifestyle to reduce your footprint with tailored, high-impact behavioural solutions. We’ll help you to sustain green habits and build you up to bigger changes.',
-    imageSide: 'right',
-    imageSrc: AdaptSetupImage,
-    alt: 'Adapt setup iOS wireframe',
-  },
-  {
-    title: 'Invest',
-    description:
-      'Offset the impact that cannot immediately be reduced by investing in projects that remove equivalent carbon from the atmosphere.',
-    imageSide: 'left',
-    imageSrc: CarbnIDImage,
-    alt: 'Carbn ID iOS wireframe',
-  },
-  {
-    title: 'Offset',
-    description: 'Make your impact count by influencing your network to join your pledge to collective climate action.',
-    imageSide: 'right',
-    imageSrc: OffsetsSetupImage,
-    alt: 'Offsets setup iOS wireframe',
-  },
-];
-
 const AppPreviewsSection = () => {
   return (
     <Section id="app">
       <BackgroundLines>
         <Layout>
           <div className="grid text-center md:text-left text-carbn-blue">
-            {appPreviews.map(props => (
+            {content.sections.map(props => (
               <AppPreview {...props} />
             ))}
           </div>
@@ -109,16 +73,16 @@ const AppPreview: React.FC<AppPreviewProps> = ({ imageSide = 'left', description
   const Image = (
     <Parallax className="px-0 mt-0 md:px-2 md:mt-2 bg-black flex-1" y={[SCROLL_RATE, -SCROLL_RATE]}>
       <div className="flex items-center justify-center">
-      <div className="device device-iphone-x shadow-2xl" style={{ marginLeft: '-2rem', marginTop: '-6rem' }}>
-        <div className="device-frame">
-          <img className="device-content" src={imageSrc} alt={alt} />
+        <div className="device device-iphone-x shadow-2xl" style={{ marginLeft: '-2rem', marginTop: '-6rem' }}>
+          <div className="device-frame">
+            <img className="device-content" src={imageSrc} alt={alt} />
+          </div>
+          <div className="device-stripe"></div>
+          <div className="device-header"></div>
+          <div className="device-sensors"></div>
+          <div className="device-btns"></div>
+          <div className="device-power"></div>
         </div>
-        <div className="device-stripe"></div>
-        <div className="device-header"></div>
-        <div className="device-sensors"></div>
-        <div className="device-btns"></div>
-        <div className="device-power"></div>
-      </div>
       </div>
     </Parallax>
   );

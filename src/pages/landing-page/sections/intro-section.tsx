@@ -4,28 +4,10 @@ import { animated } from 'react-spring';
 import { useTrail } from 'react-spring/web';
 import Section from '../../../components/section/section';
 import Typography from '../../../components/typography/typography';
-import { css, InterpolationWithTheme } from '@emotion/core';
-import DarkLines from '../../../assets/svg/Dark.svg';
 import Layout from '../../../components/layout';
 import { scrollToSection } from '../../../util/util';
+import BackgroundLines from '../../../components/background-lines/background-lines';
 
-declare module 'react' {
-  interface Attributes {
-    css?: InterpolationWithTheme<any>;
-  }
-}
-
-const Background = ({ children }) => (
-  <div
-    css={css`
-      background-image: url(${DarkLines});
-      filter: brightness(3);
-    `}
-    className="h-screen bg-cover bg-transparent"
-  >
-    {children}
-  </div>
-);
 
 // const items = [
 //   'Our climate is changing at an alarming rate due to human activity.',
@@ -51,7 +33,7 @@ const config = {
 };
 
 const SENTENCE_DELAY = 2000;
-const DISABLE_ANIMATION = false;
+const DISABLE_ANIMATION = true;
 
 function SentenceTrail(props: { sentence: string, delay: number }) {
   const [toggle, set] = useState(DISABLE_ANIMATION);
@@ -79,14 +61,14 @@ function SentenceTrail(props: { sentence: string, delay: number }) {
     return () => window.clearTimeout(handle);
   }, []);
 
-  useLayoutEffect(() => {
-    if (DISABLE_ANIMATION) return;
+  // useLayoutEffect(() => {
+  //   if (DISABLE_ANIMATION) return;
 
-    console.log({ delayIn, delayOut });
+  //   console.log({ delayIn, delayOut });
 
-    const handle = window.setTimeout(() => set(false), delayOut);
-    return () => window.clearTimeout(handle);
-  }, []);
+  //   const handle = window.setTimeout(() => set(false), delayOut);
+  //   return () => window.clearTimeout(handle);
+  // }, []);
 
   return (
     <div className="mb-4">
@@ -103,7 +85,7 @@ function SentenceTrail(props: { sentence: string, delay: number }) {
           }}
         >
           <animated.span style={{ height }}>
-            <Typography h1 inline>
+            <Typography h1 inline className="text-lg md:text-2xl">
               {items[index]}
             </Typography>
           </animated.span>
@@ -129,13 +111,13 @@ function IntroSection() {
 
   return (
     <Section id="intro" className="bg-carbn-blue text-carbn-white h-screen">
-      <Background>
+      <BackgroundLines>
         <Layout>
           {sentences.map((sentence, index) => (
             <SentenceTrail key={index} sentence={sentence} delay={index * SENTENCE_DELAY}/>
           ))}
         </Layout>
-      </Background>
+      </BackgroundLines>
     </Section>
   );
 }

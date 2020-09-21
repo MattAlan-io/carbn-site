@@ -7,6 +7,7 @@ import tw from 'tailwind.macro';
 import Logo from '../../../components/logo';
 import Layout from '../../../components/layout';
 import { scrollToSection } from '../../../util/util';
+import BackgroundLines from '../../../components/background-lines/background-lines';
 
 const ContinueButton = tw.button`
   bg-white
@@ -27,16 +28,19 @@ const LogoSection = () => {
   }
   
   return (
-    <Section id="logo" className="bg-carbn-luna-green text-carbn-white h-screen">
-      <Layout className="flex">
-        <div className="grid grid-cols-1 self-center justify-center">
+    <Section id="logo" className="bg-carbn-blue text-carbn-white h-screen">
+      <BackgroundLines>
+
+      <Layout className="flex min-h-screen ">
+        <div className="grid grid-cols-1 self-center justify-center w-full">
           <Logo />
           <Typography h2 className="mt-10 text-center">Enabling individuals to take personal responsibility for their impact on the planet.</Typography>
-          <div className="flex justify-center mt-3">
+          <div className="flex justify-center mt-5">
             <ContinueButton onClick={goToAppPreviews}>Enter</ContinueButton>
           </div>
         </div>
       </Layout>
+      </BackgroundLines>
     </Section>
   );
 };

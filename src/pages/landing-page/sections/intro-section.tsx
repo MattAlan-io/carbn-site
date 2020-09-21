@@ -97,13 +97,18 @@ function SentenceTrail(props: { sentence: string, delay: number }) {
 
 // const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)   
 
-function IntroSection() {
+type Props = {
+  onAnimationCompleting?: () => void;
+}
+
+function IntroSection({ onAnimationCompleting }: Props) {
 
   const totalTime = (sentences.length * SENTENCE_DELAY) + 500;
 
   useEffect(() => {
     const handle = setTimeout(() => {
       if (DISABLE_ANIMATION) return;
+      onAnimationCompleting?.();
       scrollToSection('logo', 'end');
     }, totalTime);
     return () => clearTimeout(handle);

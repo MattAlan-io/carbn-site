@@ -33,7 +33,7 @@ const config = {
 };
 
 const SENTENCE_DELAY = 2000;
-const DISABLE_ANIMATION = true;
+const DISABLE_ANIMATION = false;
 
 function SentenceTrail(props: { sentence: string, delay: number }) {
   const [toggle, set] = useState(DISABLE_ANIMATION);
@@ -112,7 +112,7 @@ function IntroSection() {
   return (
     <Section id="intro" className="bg-carbn-blue text-carbn-white h-screen">
       <BackgroundLines>
-        <Layout>
+        <Layout className="px-10">
           {sentences.map((sentence, index) => (
             <SentenceTrail key={index} sentence={sentence} delay={index * SENTENCE_DELAY}/>
           ))}

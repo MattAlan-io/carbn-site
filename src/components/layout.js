@@ -25,7 +25,7 @@ const Layout = ({ children, className=''}) => {
   return (
     <>
       <div
-      className={`p-10 h-full ${className}`}
+      className={`md:p-10 h-full justify-center self-center ${className}`}
         style={{
           margin: `0 auto`,
           maxWidth: 960,

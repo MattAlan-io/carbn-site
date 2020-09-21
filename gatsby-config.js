@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Carbn`,
-    description: `Carbn Homepage`,
-    author: `@carbn`,
+    description: `Carbn`,
+    author: `@carbn_app`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -10,24 +10,9 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/queryable`,
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-react-svg',
-    //   options: {
-    //     rule: {
-    //       include: /\.inline\.svg$/
-    //     }
-    //   }
-    // },
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     name: 'fonts',
-    //     path: `${__dirname}/src/static/fonts/`
-    //   }
-    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -39,7 +24,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.webp`, // This path is relative to the root of the site.
+        icon: `src/assets/queryable/favicon.webp`, // This path is relative to the root of the site.
       },
     },
     {

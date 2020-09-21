@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 * {
-  font-family: -apple-system, Roboto, "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif;
+  font-family: Roboto, "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif;
   box-sizing: border-box;
 }
 

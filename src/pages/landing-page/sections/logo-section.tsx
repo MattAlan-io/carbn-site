@@ -1,16 +1,18 @@
 import React, { PropsWithChildren } from 'react';
 
 import Section from '../../../components/section/section';
-import Typography from '../../../components/typography/typography';
 
 import tw from 'tailwind.macro';
-import Logo from '../../../components/logo';
-import Layout from '../../../components/layout';
 import { scrollToSection } from '../../../util/util';
 import BackgroundLines from '../../../components/background-lines/background-lines';
 import { Parallax } from 'react-scroll-parallax';
 import { DeviceWidth, useDeviceSize } from '../../../hooks/useDeviceSize';
 import { css } from '@emotion/core';
+import Layout from '../../../components/layout/layout';
+import Logo from '../../../components/logo/logo';
+import Content from '../../../content/landing-page.content';
+
+const content = Content.logo;
 
 type ContinueButtonProps = PropsWithChildren<{
   onClick: () => void;
@@ -67,7 +69,7 @@ const LogoSection = () => {
 
   return (
     <Section id="logo" className="bg-carbn-blue text-carbn-white min-h-screen">
-      <BackgroundLines>
+      <BackgroundLines flip>
         <Layout className="flex min-h-screen px-10">
           <Parallax
             className="px-2 mt-2 md:mt-0 bg-black flex-1 min-h-screen"
@@ -86,10 +88,10 @@ const LogoSection = () => {
                 `}
                 className="mt-10"
               >
-                Enabling individuals to take personal responsibility for their impact on the planet.
+                {content.subtitle}
               </h3>
               <div className="flex justify-center mt-5">
-                <ContinueButton onClick={goToAppPreviews}>Enter</ContinueButton>
+                <ContinueButton onClick={goToAppPreviews}>{content.buttonText}</ContinueButton>
               </div>
             </div>
           </Parallax>

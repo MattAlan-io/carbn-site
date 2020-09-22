@@ -42,7 +42,7 @@ const AppPreviewsSection = () => {
         <Layout>
           <div className="grid text-center md:text-left text-carbn-blue">
             {content.sections.map(props => (
-              <AppPreview {...props} />
+              <AppPreview {...props} key={props.title} />
             ))}
           </div>
         </Layout>

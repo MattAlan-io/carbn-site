@@ -13,9 +13,9 @@ import { useStaticQuery, graphql } from 'gatsby';
 type Props = {
   description: string;
   lang: string;
-  meta: { name: string, content: string };
+  meta: { name: string; content: string };
   title: string;
-}
+};
 
 function SEO({ description, lang, meta, title }: Props) {
   const { site } = useStaticQuery(

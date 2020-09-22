@@ -5,17 +5,16 @@ import './layout.css';
 type Props = PropsWithChildren<{ className?: string }>;
 
 const Layout = ({ children, className }: Props) => {
-
   return (
-      <div
+    <div
       className={`md:p-10 h-full justify-center self-center ${className}`}
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-        }}
-      >
-        {children}
-      </div>
+      style={{
+        margin: `0 auto`,
+        maxWidth: 960,
+      }}
+    >
+      {children}
+    </div>
   );
 };
 

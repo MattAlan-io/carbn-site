@@ -30,16 +30,14 @@ const Content = {
       },
       {
         title: `Adapt`,
-        description:
-          `Adapt your lifestyle to reduce your footprint with tailored, high-impact behavioural solutions. We’ll help you to sustain green habits and build you up to bigger changes.`,
+        description: `Adapt your lifestyle to reduce your footprint with tailored, high-impact behavioural solutions. We’ll help you to sustain green habits and build you up to bigger changes.`,
         imageSide: `right`,
         imageSrc: AdaptSetupImage,
         alt: `Adapt setup iOS wireframe`,
       },
       {
         title: `Invest`,
-        description:
-          `Offset the impact that cannot immediately be reduced by investing in projects that remove equivalent carbon from the atmosphere.`,
+        description: `Offset the impact that cannot immediately be reduced by investing in projects that remove equivalent carbon from the atmosphere.`,
         imageSide: `left`,
         imageSrc: OffsetsSetupImage,
         alt: `Carbn ID iOS wireframe`,
@@ -55,7 +53,7 @@ const Content = {
   },
   footer: {
     emailAddress: `info@carbn.com`,
-  }
+  },
 } as const;
 
 export type Content = typeof Content;

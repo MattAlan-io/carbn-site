@@ -19,7 +19,7 @@ const LandingPage = () => {
       <IntroSection />
       <LogoSection />
       <AppPreviewsSection />
-      {/* <EmailSection /> */}
+      <EmailSection />
       <Footer />
     </>
   );

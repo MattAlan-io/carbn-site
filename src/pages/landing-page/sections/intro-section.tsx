@@ -18,11 +18,11 @@ const config = {
 const SENTENCE_DELAY = 2000;
 const DISABLE_ANIMATION = false;
 
-function SentenceTrail(props: { sentence: string, delay: number }) {
+function SentenceTrail(props: { sentence: string; delay: number }) {
   const [toggle, set] = useState(DISABLE_ANIMATION);
   const items = props.sentence.split(' ');
 
-  const delayIn = props.delay ;
+  const delayIn = props.delay;
   const delayOut = props.delay + SENTENCE_DELAY;
 
   const trail = useTrail(items.length, {
@@ -32,7 +32,6 @@ function SentenceTrail(props: { sentence: string, delay: number }) {
     height: toggle ? 80 : 0,
     from: { opacity: 0, x: -50, height: 0 },
   });
-
 
   useLayoutEffect(() => {
     if (DISABLE_ANIMATION) return;
@@ -54,9 +53,7 @@ function SentenceTrail(props: { sentence: string, delay: number }) {
           }}
         >
           <animated.span style={{ height }}>
-            <h1 className="text-lg md:text-2xl font-normal">
-              {items[index]}
-            </h1>
+            <h1 className="text-lg md:text-2xl font-normal">{items[index]}</h1>
           </animated.span>
         </animated.span>
       ))}
@@ -66,11 +63,11 @@ function SentenceTrail(props: { sentence: string, delay: number }) {
 
 type Props = {
   onAnimationCompleting?: () => void;
-}
+};
 
 function IntroSection({ onAnimationCompleting }: Props) {
   const { sentences } = content;
-  const totalTime = (sentences.length * SENTENCE_DELAY) + 500;
+  const totalTime = sentences.length * SENTENCE_DELAY + 500;
 
   useEffect(() => {
     const handle = setTimeout(() => {
@@ -85,7 +82,7 @@ function IntroSection({ onAnimationCompleting }: Props) {
       <BackgroundLines>
         <Layout className="px-10">
           {sentences.map((sentence, index) => (
-            <SentenceTrail key={index} sentence={sentence} delay={index * SENTENCE_DELAY}/>
+            <SentenceTrail key={index} sentence={sentence} delay={index * SENTENCE_DELAY} />
           ))}
         </Layout>
       </BackgroundLines>

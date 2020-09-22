@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
 export enum DeviceWidth {
   Desktop,
@@ -28,7 +28,7 @@ export function useDeviceSize() {
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
-  })
+  });
 
   useEffect(() => {
     // Handler to call on window resize
@@ -37,35 +37,33 @@ export function useDeviceSize() {
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
-      })
+      });
     }
 
     // Add event listener
-    window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', handleResize);
 
     // Call handler right away so state gets updated with initial window size
-    handleResize()
+    handleResize();
 
     // Remove event listener on cleanup
-    return () => window.removeEventListener('resize', handleResize)
-  }, []) // Empty array ensures that effect is only run on mount
-
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
 
   return [getDeviceWidth(windowSize.width), windowSize] as const;
 }
 
 /**
  * create a number range from start (inclusive) to end (exclusive)
- * @param start 
- * @param end 
+ * @param start
+ * @param end
  */
 function enumerate(start: number, end: number) {
   return Array.from({ length: end - start }).map((_, i) => i + start);
 }
 
-
 export function byDeviceWidth(deviceWidth: DeviceWidth) {
-  return <V>(sizeMappings: {[key in DeviceWidth]?: V }) => {
+  return <V>(sizeMappings: { [key in DeviceWidth]?: V }) => {
     const widths = [DeviceWidth.Mobile, DeviceWidth.Tablet, DeviceWidth.Desktop];
 
     const targetIndex = widths.indexOf(deviceWidth);
@@ -81,11 +79,11 @@ export function byDeviceWidth(deviceWidth: DeviceWidth) {
     const fallback = enumerate(0, widths.length)
       .map(i => widths[i])
       .find(width => sizeMappings[width] !== undefined);
-    
+
     if (fallback === undefined) {
-      throw new Error("No size mapping found for this byDeviceWidth usage!");
+      throw new Error('No size mapping found for this byDeviceWidth usage!');
     }
 
-    return sizeMappings[fallback];;
-  }
+    return sizeMappings[fallback];
+  };
 }

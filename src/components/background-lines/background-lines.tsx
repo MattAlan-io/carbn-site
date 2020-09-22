@@ -15,7 +15,7 @@ const BackgroundLines = ({ children, flip = false }: PropsWithChildren<{ flip?: 
         right: 0;
         bottom: 0;
         background-size: cover;
-        transform: scaleY(${flip ? -1 : 1}) ;
+        transform: scaleY(${flip ? -1 : 1});
       }
     `}
     className="min-h-screen bg-transparent relative flex"

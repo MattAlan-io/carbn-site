@@ -1,18 +1,9 @@
-import React from "react"
+import React from 'react';
 
 const LinkedInIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    width="28"
-    height="28"
-    data-ux="IconSocial"
-  >
+  <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28" data-ux="IconSocial">
     <g>
-      <path
-        d="M12 2c5.523 0 10 4.476 10 10 0 5.523-4.477 10-10 10-5.522 0-10-4.477-10-10C2 6.478 6.478 2 12 2z"
-        fill="#2867B2"
-      ></path>
+      <path d="M12 2c5.523 0 10 4.476 10 10 0 5.523-4.477 10-10 10-5.522 0-10-4.477-10-10C2 6.478 6.478 2 12 2z" fill="#2867B2"></path>
       <path
         d="M16.926 6H6.871C6.391 6 6 6.38 6 6.85v10.098c0 .47.39.852.871.852h10.056a.864.864 0 00.873-.852V6.85a.863.863 0 00-.874-.85z"
         fill="#fff"
@@ -23,6 +14,6 @@ const LinkedInIcon = () => (
       ></path>
     </g>
   </svg>
-)
+);
 
-export default LinkedInIcon
+export default LinkedInIcon;

@@ -21,13 +21,13 @@ Auto fix project formatting
 
 
 ### Content configuration
+All site content can be edited within the file `src/content/landing-page.content.ts`
 
 ### Deploying to GoDaddy
  - Kick off a build with `npm run build` - this will build the site to the `/public` folder
  - Once complete, open cPanel on the GoDaddy hosting account
  - Replace the contents of the the `/www` folder in cPanel with the 
  contents of the `/public` folder from this build
-
 
 ## Technology Stack
 This project is built with the following technology:

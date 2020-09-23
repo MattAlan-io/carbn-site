@@ -1,6 +1,9 @@
 import React, { useEffect, useLayoutEffect } from 'react';
 import Section from '../../../components/section/section';
+import Content from '../../../content/landing-page.content';
 import { setupEmail } from '../../../static/go-daddy-email.js';
+
+const content = Content.email;
 
 const EmailSection = () => {
   useLayoutEffect(() => {
@@ -19,7 +22,7 @@ const EmailSection = () => {
         <input name="utf8" type="hidden" value="✓" />
         <div className="mimi_field required w-4/5 m-auto flex flex-col max-w-lg">
           <label htmlFor="signup_email" className="text-center">
-            Pre-register for our launch below:
+            {content.title}
           </label>
           <br />
           <div className="flex flex-col md:flex-row">
@@ -30,18 +33,18 @@ const EmailSection = () => {
               name="signup[email]"
               type="text"
               data-required-field="This field is required"
-              placeholder="Email"
+              placeholder={content.emailInputPlaceholder}
             />
             <input
               className="submit rounded p-3 text-gray-800 mt-4 md:mt-0 md:ml-8 md:px-8 cursor-pointer"
               type="submit"
-              value="Get Access"
+              value={content.buttonText}
               id="webform_submit_button"
-              data-default-text="Get Access"
-              data-submitting-text="Sending..."
-              data-invalid-text="↑ You forgot some required fields"
+              data-default-text={content.buttonText}
+              data-submitting-text={content.buttonSendingText}
+              data-invalid-text={content.emailInvalidText}
               data-choose-list="↑ Choose a list"
-              data-thanks="Thank you!"
+              data-thanks={content.emailInputPlaceholder}
             />
           </div>
         </div>

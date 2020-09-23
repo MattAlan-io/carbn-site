@@ -32,7 +32,6 @@
   },
   "devDependencies": {
     "prettier": "2.1.1",
-    "surge": "^0.21.6",
     "tailwindcss": "^1.8.10"
   },
   "keywords": [
@@ -43,7 +42,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "deploy": "surge public",
-    "predeploy": "npm run build && cp public/index.html public/404.html && cp CNAME public/",
+    "postbuild": "cp .htaccess public/",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

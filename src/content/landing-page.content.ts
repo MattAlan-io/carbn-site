@@ -51,6 +51,14 @@ const Content = {
       },
     ],
   },
+  email: {
+    title: `Pre-register for our launch below:`,
+    emailInputPlaceholder: `Email`,
+    emailInvalidText: `↑ You forgot some required fields`,
+    buttonText: `Get Access`,
+    buttonSendingText: `Sending...`,
+    buttonConfirmationText: `Thank you!`,
+  },
   footer: {
     emailAddress: `info@carbn.com`,
   },

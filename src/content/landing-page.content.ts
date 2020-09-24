@@ -16,7 +16,7 @@ const Content = {
     ],
   },
   logo: {
-    subtitle: `Enabling individuals to take personal responsibility for their impact on the planet.`,
+    subtitle: `Jacob`,
     buttonText: `Enter`,
   },
   app: {
